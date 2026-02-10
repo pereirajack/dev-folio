@@ -2,60 +2,101 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Garante que o tamanho da caixa inclua a borda */
+  box-sizing: border-box;
 }
 
 /* 2. VARIÁVEIS (Seu Design System) */
 :root {
-  --text-color: #FFFFFF; /* Branco puro */
-  --bg-url: url(https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop); /* Imagem de fundo abstrata */
-  --stroke-color: rgba(255, 255, 255, 0.5); /* Borda semitransparente */
-  --surface-color: rgba(255, 255, 255, 0.1); /* Fundo "vidro" (Glassmorphism) */
-  --surface-color-hover: rgba(255, 255, 255, 0.05); /* Efeito ao passar o mouse */
-  --highlight-color: #eb4a5a; /* Vermelho Rocketseat/Destaque */
+  --text-color: #FFFFFF;
+  --bg-url: url(https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --surface-color-hover: rgba(255, 255, 255, 0.05);
+  --highlight-color: #eb4a5a;
 }
 
-/* 3. CORPO (O "Canvas" da página) */
+/* 3. CORPO (Background e Tipografia) */
 body {
   background-image: var(--bg-url);
   background-repeat: no-repeat;
   background-position: top center;
-  background-size: cover; /* A imagem cobre a tela toda */
-  
-  /* Se a imagem falhar, usa um cinza escuro */
+  background-size: cover;
   background-color: #121214; 
-
-  /* Tipografia */
-  color: var(--text-color);
-  font-family: 'Inter', sans-serif; /* A fonte que importamos no HTML */
-  -webkit-font-smoothing: antialiased; /* Deixa a fonte mais nítida no Mac/Chrome */
   
-  /* Centralizar tudo na tela (Height 100% da viewport) */
+  /* Tipografia Global */
+  color: var(--text-color);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  
   height: 100vh; 
 }
 
-/* 4. O CONTAINER (A área útil do celular) */
+/* 4. O CONTAINER (Limite da largura em telas grandes) */
 #container {
   width: 100%;
-  max-width: 588px; /* Largura máxima (igual stories do Instagram) */
-  margin: 56px auto 0px; /* Margem: Cima | Laterais (Auto centraliza) | Baixo */
-  padding: 0 24px; /* Espaço interno nas laterais para não colar na borda do celular */
+  max-width: 588px;
+  margin: 56px auto 0px;
+  padding: 0 24px;
 }
 
-/* 5. PERFIL (A foto e o nome) */
+/* 5. PERFIL */
 #profile {
-  text-align: center; /* Centraliza texto e imagem */
+  text-align: center;
   padding: 24px;
 }
 
 #profile img {
-  width: 112px; /* Tamanho da foto */
-  border-radius: 50%; /* Transforma quadrado em círculo */
+  width: 112px;
+  border-radius: 50%;
 }
 
 #profile p {
   font-weight: 500;
   line-height: 24px;
-  margin-top: 8px; /* Afasta um pouco do nome */
-  opacity: 0.8; /* Deixa o texto levemente transparente */
+  margin-top: 8px;
+  opacity: 0.8;
+}
+
+/* 6. LISTA DE LINKS */
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0;
+}
+
+/* 7. ESTILO DOS BOTÕES */
+ul li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  padding: 16px 24px;
+  
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+  
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  
+  text-decoration: none;
+  font-weight: 500;
+  
+  transition: background 0.2s, border 0.2s; 
+}
+
+/* 8. INTERAÇÃO (Hover) */
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
+}
+
+/* 9. RODAPÉ */
+footer {
+  padding: 24px 0;
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.6;
 }
