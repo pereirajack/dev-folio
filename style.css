@@ -1,0 +1,61 @@
+/* 1. RESET: Zerando os padrões do navegador */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Garante que o tamanho da caixa inclua a borda */
+}
+
+/* 2. VARIÁVEIS (Seu Design System) */
+:root {
+  --text-color: #FFFFFF; /* Branco puro */
+  --bg-url: url(https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop); /* Imagem de fundo abstrata */
+  --stroke-color: rgba(255, 255, 255, 0.5); /* Borda semitransparente */
+  --surface-color: rgba(255, 255, 255, 0.1); /* Fundo "vidro" (Glassmorphism) */
+  --surface-color-hover: rgba(255, 255, 255, 0.05); /* Efeito ao passar o mouse */
+  --highlight-color: #eb4a5a; /* Vermelho Rocketseat/Destaque */
+}
+
+/* 3. CORPO (O "Canvas" da página) */
+body {
+  background-image: var(--bg-url);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover; /* A imagem cobre a tela toda */
+  
+  /* Se a imagem falhar, usa um cinza escuro */
+  background-color: #121214; 
+
+  /* Tipografia */
+  color: var(--text-color);
+  font-family: 'Inter', sans-serif; /* A fonte que importamos no HTML */
+  -webkit-font-smoothing: antialiased; /* Deixa a fonte mais nítida no Mac/Chrome */
+  
+  /* Centralizar tudo na tela (Height 100% da viewport) */
+  height: 100vh; 
+}
+
+/* 4. O CONTAINER (A área útil do celular) */
+#container {
+  width: 100%;
+  max-width: 588px; /* Largura máxima (igual stories do Instagram) */
+  margin: 56px auto 0px; /* Margem: Cima | Laterais (Auto centraliza) | Baixo */
+  padding: 0 24px; /* Espaço interno nas laterais para não colar na borda do celular */
+}
+
+/* 5. PERFIL (A foto e o nome) */
+#profile {
+  text-align: center; /* Centraliza texto e imagem */
+  padding: 24px;
+}
+
+#profile img {
+  width: 112px; /* Tamanho da foto */
+  border-radius: 50%; /* Transforma quadrado em círculo */
+}
+
+#profile p {
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 8px; /* Afasta um pouco do nome */
+  opacity: 0.8; /* Deixa o texto levemente transparente */
+}
