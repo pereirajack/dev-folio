@@ -100,3 +100,59 @@ footer {
   font-size: 14px;
   opacity: 0.6;
 }
+
+/* --- LÓGICA DO LIGHT MODE --- */
+/* Quando o body tiver a classe "light", ele troca as variáveis */
+.light {
+  --text-color: #000000; /* Texto Preto */
+  --bg-url: url(https://images.unsplash.com/photo-1620121692029-d088224ddc74?q=80&w=2832&auto=format&fit=crop); /* Fundo Claro */
+  --stroke-color: rgba(0, 0, 0, 0.5); /* Borda escura */
+  --surface-color: rgba(0, 0, 0, 0.05); /* Vidro escuro */
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: #eb4a5a; 
+}
+
+/* --- O SWITCH (O Botãozinho) --- */
+#switch {
+  position: relative; /* Para o botão dentro dele se posicionar em relação a ele */
+  width: 64px;
+  margin: 4px auto; /* Centraliza */
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white;
+  border: 0;
+  border-radius: 50%; /* Redondo */
+  
+  /* Posicionamento absoluto dentro do pai (#switch) */
+  position: absolute;
+  top: 50%; /* Metade da altura */
+  left: 0;
+  z-index: 1; /* Fica por cima da trilha */
+  
+  transform: translateY(-50%); /* Ajuste fino do centro vertical */
+  
+  /* Animação suave */
+  transition: left 0.4s;
+}
+
+/* A trilha (fundo do botão) */
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px; /* Pílula */
+}
+
+/* --- ANIMAÇÃO DO SWITCH --- */
+/* Quando estiver no modo light, o botão vai para a direita */
+.light #switch button {
+  left: 32px; /* Empurra para a direita */
+  background-color: black; /* Botão fica preto no modo claro para contraste */
+}
